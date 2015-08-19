@@ -42,10 +42,10 @@ def parse(fobj):
             if len(test) == 3:
                 test2.append(test)
                 
-    
-    allData = sorted(allData, key = lambda item: (item[0], item[1]))
+    test2.sort(key=lambda item: (item[2], item[0]), reverse=False)
+    #allData = sorted(allData, key = lambda item: (item[0], item[1]))
                 
-    print test2
+    return test2
 
 
 def report(targets):
