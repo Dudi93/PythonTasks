@@ -67,7 +67,9 @@ object
     ...return 
 
     '''
-    print targets
+    
+    #dwa fory tu dopierdolic i chuj bedzie kurwa
+    print targets[0][1]
     
     #sorted1=sorted(targets, key=lambda item: item(9))
     #sorted2=sorted(targets, key=lambda item: item(0))
