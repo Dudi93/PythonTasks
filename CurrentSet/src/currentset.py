@@ -1,5 +1,5 @@
-import sys
-sys.path.insert(0, '../lib')
+﻿import sys
+sys.path.insert(0, 'D:/TietoProjects/PythonTasks/CurrentSet/lib')
 
 # Wrapper for ElementTree
 # api: http://docs.python.org/2/library/xml.etree.elementtree.html
@@ -20,6 +20,9 @@ def parse(fobj):
             temp=[]
             for td in elem:
                 if counter == 1:
+                    if td.text == "Target name":
+                        counter += 1
+                        continue
                     temp.append(td.text)
                     counter += 1
                 elif counter == 3:
@@ -35,7 +38,6 @@ def parse(fobj):
                 data.append(temp)
                 
     data.sort(key=lambda item: (item[2], item[0]), reverse=False)
-    #allData = sorted(allData, key = lambda item: (item[0], item[1]))
                 
     return data
 
@@ -59,16 +61,38 @@ object
     ...return 
 
     '''
-    
-    #dwa fory tu dopierdolic i chuj bedzie kurwa
-    print targets
-    
-    #sorted1=sorted(targets, key=lambda item: item(9))
-    #sorted2=sorted(targets, key=lambda item: item(0))
-    
-    #for elem in sorted1:
-        #if elem
-    #    print elem
+    HWnames={}
+    for col in range(0, len(targets)):
+        counter = 0
+        for name in targets[col]:
+            if counter != 2:
+                counter += 1
+                continue
+            if name not in HWnames:
+                HWnames[name] = 1
+            else:
+                HWnames[name] += 1
+            continue
+    #for key in sorted(HWnames):
+    #    print key, HWnames[key]
+    count = 1
+    testHW = targets[0][2]
+    for target, ip, hw in targets:
+        if count == 1:
+            count += 1
+            print '========== ', hw, ' =========='
+        if hw == testHW:
+            print target, ip
+        else:
+            testHW = hw
+            print '==========================='
+            print '========== ', hw, ' =========='
+        #print target, ip, hw
+
+    #for data in range(0, len(targets)):
+    #    if data == 0:
+
+    #print targets, len(targets), len(targets[2])
 
 
 def main():
