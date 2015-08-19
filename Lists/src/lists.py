@@ -5,26 +5,34 @@ def first_last(words):
     strings where the string length is 2 or more and the first
     and last chars of the string are the same.
     '''
-    # !!!Your code here!!!
+    size = len(words)
+    correctWords = 0
+    for wordNumber in range(0, size):
+        wordSize = len(words[wordNumber])
+        if wordSize < 2:
+            continue
+        if words[wordNumber][0] == words[wordNumber][wordSize-1]:
+            correctWords = correctWords + 1
+    return correctWords
 
 
 def last(a):
     '''
     Extract the last element from a tuple -- used for custom sorting below.
     '''
-    # !!!Your code here!!!
+    #size = 
+    return a[-1]
 
 
 def sort_key(tuples):
-    '''
+    '''wordCount
     Given a list of non-empty tuples, return a list sorted in increasing
     order by the last element in each tuple.
     e.g. [(1, 7), (1, 3), (3, 4, 5), (2, 2)] yields
     [(2, 2), (1, 3), (3, 4, 5), (1, 7)]
     Hint: use a custom key= function to extract the last element form each tuple.
     '''
-    # !!!Your code here!!!
-
+    return sorted(tuples, key=last)
 
 # Simple provided test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
